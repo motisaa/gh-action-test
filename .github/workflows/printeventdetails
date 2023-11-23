@@ -1,0 +1,20 @@
+name: Print Event Details
+
+on:
+  issues:
+    types:
+      - created
+      - edited
+
+jobs:
+  output-details:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Output Event Details
+        run: |
+          echo "Issue ID: ${{ github.event.issue.id }}"
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue Body: ${{ github.event.issue.body }}"
+          echo "Issue Author: ${{ github.event.issue.user.login }}"
+         
